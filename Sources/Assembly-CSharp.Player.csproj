@@ -611,6 +611,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Input System\MainControls.cs" />
+    <Compile Include="Assets\Scripts\AirFlowBehaviour.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\TriggerVisibiliti.cs" />
     <Compile Include="Assets\Scripts\VisibleItems.cs" />

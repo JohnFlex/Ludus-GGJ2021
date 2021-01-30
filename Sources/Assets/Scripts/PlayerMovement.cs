@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public static bool nowMoving = false;
     MainControls controls;
     float movePerformation = 0;
 
@@ -12,24 +13,29 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 1f;
 
 
-    Coroutine glide;
-
     Rigidbody2D rb;
 
-    bool grounded = false;
+    bool grounded = false;  
     
 
     private void Awake()
     {
         controls = new MainControls();
 
-        controls.Default.Move.performed += ctx => movePerformation = ctx.ReadValue<float>();
-        controls.Default.Move.canceled += _ => movePerformation = 0f;
+        controls.Default.Move.performed += ctx =>
+        {
+            nowMoving = true;
+            movePerformation = ctx.ReadValue<float>();
+        };
+        controls.Default.Move.canceled += _ =>
+        {
+            nowMoving = false;
+            movePerformation = 0f;
+        };
         
 
         controls.Default.Jump.performed += _ => Jump();
 
-        controls.Default.Glide.performed += _ => glide = StartCoroutine(Glide());
 
         rb = GetComponent<Rigidbody2D>();
     }
@@ -74,10 +80,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    IEnumerator Glide()
-    {
-        yield return new WaitForEndOfFrame();
-    }
 
     private void OnDisable()
     {
