@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
 public class PlayerMovement : MonoBehaviour
 {
+    
     public static bool nowMoving = false;
     MainControls controls;
     float movePerformation = 0;
@@ -15,11 +17,27 @@ public class PlayerMovement : MonoBehaviour
 
     Rigidbody2D rb;
 
-    bool grounded = false;  
+    bool grounded = false;
+
+    [SerializeField]
+    AudioClip jumpClip;
+
+    [SerializeField]
+    AudioClip walkingClip;
+
+    [SerializeField]
+    AudioClip fallClip;
+
+    AudioSource audioSource;
+
+    Coroutine soundCoroutine;
     
 
     private void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
+        rb = GetComponent<Rigidbody2D>();
+
         controls = new MainControls();
 
         controls.Default.Move.performed += ctx =>
@@ -31,13 +49,15 @@ public class PlayerMovement : MonoBehaviour
         {
             nowMoving = false;
             movePerformation = 0f;
+            audioSource.Stop();
         };
         
 
         controls.Default.Jump.performed += _ => Jump();
 
 
-        rb = GetComponent<Rigidbody2D>();
+        
+        
     }
 
     private void OnEnable()
@@ -47,14 +67,20 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Move(movePerformation);   
+        Move(movePerformation);
+        if (Mathf.Approximately(rb.velocity.magnitude, Vector2.zero.magnitude))
+        {
+            //audioSource.Stop();
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
+            audioSource.PlayOneShot(fallClip, 1f);
             grounded = true;
+            Debug.Log("Enter Ground");
         }
     }
 
@@ -63,6 +89,8 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             grounded = false;
+            Debug.Log("Quit ground");
+            
         }
     }
 
@@ -70,12 +98,20 @@ public class PlayerMovement : MonoBehaviour
     void Move(float moveDirection)
     {
         rb.AddForce(Vector2.right * moveDirection * speed, ForceMode2D.Impulse);
+
+        if (grounded && !audioSource.isPlaying && !Mathf.Approximately(rb.velocity.magnitude, Vector2.zero.magnitude))
+        {
+            Debug.Log("INDALOOP");
+            //audioSource.Play();
+            
+        }
     }
 
     void Jump()
     {
         if (grounded)
         {
+            audioSource.PlayOneShot(jumpClip);
             rb.AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);
         }
     }
@@ -85,4 +121,6 @@ public class PlayerMovement : MonoBehaviour
     {
         controls.Default.Disable();
     }
+
+   
 }
