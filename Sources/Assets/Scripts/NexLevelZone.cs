@@ -9,13 +9,23 @@ public class NexLevelZone : MonoBehaviour
     string nextSceneName;
 
     [SerializeField]
-    AudioClip winClip;
+    AudioClip toPlayClip;
 
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>().PlayOneShot(winClip);
-        Invoke("LoadDelayedScene", 2f);
+
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            collision.gameObject.GetComponent<AudioSource>().PlayOneShot(toPlayClip);
+            Invoke("LoadDelayedScene", 2f);
+        }
+        else if (collision.gameObject.CompareTag("Ghost") && SceneManager.GetActiveScene().name != nextSceneName)
+        {
+            TriggerVisibiliti.TriggerVisibilityFromExternal();
+        }
+        
+        
     }
     void LoadDelayedScene()
     {

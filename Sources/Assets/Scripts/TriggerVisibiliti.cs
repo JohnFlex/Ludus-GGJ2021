@@ -12,7 +12,7 @@ public class TriggerVisibiliti : MonoBehaviour
 
     private void Awake()
     {
-        instance = new TriggerVisibiliti();
+        instance = this;
 
         instance.controls = new MainControls();
 
@@ -20,6 +20,11 @@ public class TriggerVisibiliti : MonoBehaviour
 
         instance.controls.Default.Enable();
 
+    }
+
+    public static void TriggerVisibilityFromExternal()
+    {
+        instance.trigger();
     }
 
 }

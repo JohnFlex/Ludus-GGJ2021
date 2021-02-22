@@ -3,61 +3,42 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-
 public class PlayerMovement : MonoBehaviour
 {
-    
-    public static bool nowMoving = false;
     MainControls controls;
     float movePerformation = 0;
 
     public float jumpHeight = 1f;
-    public float speed = 1f;
+    public float speed = 0.4f;
 
+
+    Coroutine glide;
 
     Rigidbody2D rb;
 
     bool grounded = false;
 
-    [SerializeField]
-    AudioClip jumpClip;
-
-    [SerializeField]
-    AudioClip walkingClip;
-
-    [SerializeField]
-    AudioClip fallClip;
-
-    AudioSource audioSource;
-
-    Coroutine soundCoroutine;
+    float defaultGravityScale;
+    public float glidingGravityScale = 0.5f;
+    public bool canGlide = false;
     
 
     private void Awake()
     {
-        audioSource = GetComponent<AudioSource>();
-        rb = GetComponent<Rigidbody2D>();
-
         controls = new MainControls();
 
-        controls.Default.Move.performed += ctx =>
-        {
-            nowMoving = true;
-            movePerformation = ctx.ReadValue<float>();
-        };
-        controls.Default.Move.canceled += _ =>
-        {
-            nowMoving = false;
-            movePerformation = 0f;
-            audioSource.Stop();
-        };
+        controls.Default.Move.performed += ctx => movePerformation = ctx.ReadValue<float>();
+        controls.Default.Move.canceled += _ => movePerformation = 0f;
         
 
         controls.Default.Jump.performed += _ => Jump();
 
+        controls.Default.Glide.performed += _ => StartGlide();
+        controls.Default.Glide.canceled += _ => StopGlide();
 
-        
-        
+        rb = GetComponent<Rigidbody2D>();
+
+        defaultGravityScale = rb.gravityScale;
     }
 
     private void OnEnable()
@@ -68,19 +49,22 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         Move(movePerformation);
-        if (Mathf.Approximately(rb.velocity.magnitude, Vector2.zero.magnitude))
+        if (movePerformation != 0)
         {
-            //audioSource.Stop();
+            gameObject.GetComponent<Animator>().SetFloat(0, movePerformation);
         }
+    }
+
+    private void Update()
+    {
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            audioSource.PlayOneShot(fallClip, 1f);
             grounded = true;
-            Debug.Log("Enter Ground");
         }
     }
 
@@ -89,8 +73,6 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             grounded = false;
-            Debug.Log("Quit ground");
-            
         }
     }
 
@@ -98,29 +80,32 @@ public class PlayerMovement : MonoBehaviour
     void Move(float moveDirection)
     {
         rb.AddForce(Vector2.right * moveDirection * speed, ForceMode2D.Impulse);
-
-        if (grounded && !audioSource.isPlaying && !Mathf.Approximately(rb.velocity.magnitude, Vector2.zero.magnitude))
-        {
-            Debug.Log("INDALOOP");
-            //audioSource.Play();
-            
-        }
     }
 
     void Jump()
     {
         if (grounded)
         {
-            audioSource.PlayOneShot(jumpClip);
             rb.AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);
         }
     }
 
+    void  StartGlide()
+    {
+        if (canGlide)
+        {
+            rb.gravityScale = glidingGravityScale;
+        }
+        
+    }
+
+    void StopGlide()
+    {
+        rb.gravityScale = defaultGravityScale;
+    }
 
     private void OnDisable()
     {
         controls.Default.Disable();
     }
-
-   
 }

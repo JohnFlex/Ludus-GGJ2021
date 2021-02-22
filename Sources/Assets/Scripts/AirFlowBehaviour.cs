@@ -25,7 +25,7 @@ public class AirFlowBehaviour : MonoBehaviour
         
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+   /* private void OnTriggerStay2D(Collider2D collision)
     {
         if (rb != null)
         {
@@ -46,7 +46,7 @@ public class AirFlowBehaviour : MonoBehaviour
             }
         }
 
-    }
+    }*/
 
     private void OnTriggerExit2D(Collider2D collision)
     {

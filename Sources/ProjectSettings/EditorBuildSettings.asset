@@ -12,12 +12,15 @@ EditorBuildSettings:
     path: Assets/Scenes/OptionScene.unity
     guid: 6c520e59f441761418df85d82d6c7137
   - enabled: 1
+    path: Assets/Scenes/ScenesPrehisto/Level1.unity
+    guid: 421b44d0332b2014381e6d4b3f7afb96
+  - enabled: 0
     path: Assets/Scenes/Level2.unity
     guid: b7eea5c59e91fdc4eb1d757ce8c25b8f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level1.unity
     guid: f9c5d9915c648824793a5db9f7a95f10
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level3.unity
     guid: 910e56152ac8efe409a8d435aca4379e
   m_configObjects: {}

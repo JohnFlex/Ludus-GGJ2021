@@ -40,12 +40,20 @@ public class @MainControls : IInputActionCollection, IDisposable
                     ""id"": ""962398e7-d376-4cdc-bd77-757584cdae9e"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Hold""
                 },
                 {
                     ""name"": ""Change World"",
                     ""type"": ""Button"",
                     ""id"": ""1f8b5433-14eb-43e5-9fd1-07643b2e4584"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""ActivateItem"",
+                    ""type"": ""Button"",
+                    ""id"": ""ef018fab-35db-4a52-90bd-355a9fbd8328"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -144,7 +152,7 @@ public class @MainControls : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""9969c1cc-affe-4ea7-915f-796bb5ee9594"",
                     ""path"": ""<Keyboard>/space"",
-                    ""interactions"": ""Hold"",
+                    ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""ClavierSouris"",
                     ""action"": ""Glide"",
@@ -155,7 +163,7 @@ public class @MainControls : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""f2c8b669-a7e7-40ab-88cd-cb80a7468b00"",
                     ""path"": ""<Gamepad>/buttonSouth"",
-                    ""interactions"": ""Hold"",
+                    ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Manette"",
                     ""action"": ""Glide"",
@@ -183,6 +191,143 @@ public class @MainControls : IInputActionCollection, IDisposable
                     ""action"": ""Change World"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7fd14b62-93b6-498d-8c54-913c4f28eeab"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""ClavierSouris"",
+                    ""action"": ""ActivateItem"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""GhostMode"",
+            ""id"": ""0d6b0e8b-46d5-49d1-a977-4ecb4deb8f0d"",
+            ""actions"": [
+                {
+                    ""name"": ""Movement"",
+                    ""type"": ""Button"",
+                    ""id"": ""a3802290-7672-4de6-ac64-0ca68040d952"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": ""Keyboard"",
+                    ""id"": ""3fd6007e-8cd7-4b8b-8467-afa628d8d536"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""9a849b66-2ba5-48ed-86f2-6991e924d570"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""43539204-67ab-4e5d-9da1-9554a770b00a"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""ClavierSouris"",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""abaff0f5-6e25-4e2b-bd73-6c7e016d05ae"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""4039231e-0f32-473d-8273-5fec013ca440"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Mobile"",
+                    ""id"": ""2e29d5dd-b9d8-43e4-b477-85e9b8130e8a"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""d2a2aa70-a72d-4bec-8f56-dd0d3c70cf8b"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""c6758ac2-8ab9-472c-9616-786a3d7f7743"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""78084414-0a10-4726-a364-8c1280f9962f"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""d38589b0-62af-4833-befe-2fbd171e9641"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -223,6 +368,10 @@ public class @MainControls : IInputActionCollection, IDisposable
         m_Default_Jump = m_Default.FindAction("Jump", throwIfNotFound: true);
         m_Default_Glide = m_Default.FindAction("Glide", throwIfNotFound: true);
         m_Default_ChangeWorld = m_Default.FindAction("Change World", throwIfNotFound: true);
+        m_Default_ActivateItem = m_Default.FindAction("ActivateItem", throwIfNotFound: true);
+        // GhostMode
+        m_GhostMode = asset.FindActionMap("GhostMode", throwIfNotFound: true);
+        m_GhostMode_Movement = m_GhostMode.FindAction("Movement", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -276,6 +425,7 @@ public class @MainControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Default_Jump;
     private readonly InputAction m_Default_Glide;
     private readonly InputAction m_Default_ChangeWorld;
+    private readonly InputAction m_Default_ActivateItem;
     public struct DefaultActions
     {
         private @MainControls m_Wrapper;
@@ -284,6 +434,7 @@ public class @MainControls : IInputActionCollection, IDisposable
         public InputAction @Jump => m_Wrapper.m_Default_Jump;
         public InputAction @Glide => m_Wrapper.m_Default_Glide;
         public InputAction @ChangeWorld => m_Wrapper.m_Default_ChangeWorld;
+        public InputAction @ActivateItem => m_Wrapper.m_Default_ActivateItem;
         public InputActionMap Get() { return m_Wrapper.m_Default; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -305,6 +456,9 @@ public class @MainControls : IInputActionCollection, IDisposable
                 @ChangeWorld.started -= m_Wrapper.m_DefaultActionsCallbackInterface.OnChangeWorld;
                 @ChangeWorld.performed -= m_Wrapper.m_DefaultActionsCallbackInterface.OnChangeWorld;
                 @ChangeWorld.canceled -= m_Wrapper.m_DefaultActionsCallbackInterface.OnChangeWorld;
+                @ActivateItem.started -= m_Wrapper.m_DefaultActionsCallbackInterface.OnActivateItem;
+                @ActivateItem.performed -= m_Wrapper.m_DefaultActionsCallbackInterface.OnActivateItem;
+                @ActivateItem.canceled -= m_Wrapper.m_DefaultActionsCallbackInterface.OnActivateItem;
             }
             m_Wrapper.m_DefaultActionsCallbackInterface = instance;
             if (instance != null)
@@ -321,10 +475,46 @@ public class @MainControls : IInputActionCollection, IDisposable
                 @ChangeWorld.started += instance.OnChangeWorld;
                 @ChangeWorld.performed += instance.OnChangeWorld;
                 @ChangeWorld.canceled += instance.OnChangeWorld;
+                @ActivateItem.started += instance.OnActivateItem;
+                @ActivateItem.performed += instance.OnActivateItem;
+                @ActivateItem.canceled += instance.OnActivateItem;
             }
         }
     }
     public DefaultActions @Default => new DefaultActions(this);
+
+    // GhostMode
+    private readonly InputActionMap m_GhostMode;
+    private IGhostModeActions m_GhostModeActionsCallbackInterface;
+    private readonly InputAction m_GhostMode_Movement;
+    public struct GhostModeActions
+    {
+        private @MainControls m_Wrapper;
+        public GhostModeActions(@MainControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Movement => m_Wrapper.m_GhostMode_Movement;
+        public InputActionMap Get() { return m_Wrapper.m_GhostMode; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(GhostModeActions set) { return set.Get(); }
+        public void SetCallbacks(IGhostModeActions instance)
+        {
+            if (m_Wrapper.m_GhostModeActionsCallbackInterface != null)
+            {
+                @Movement.started -= m_Wrapper.m_GhostModeActionsCallbackInterface.OnMovement;
+                @Movement.performed -= m_Wrapper.m_GhostModeActionsCallbackInterface.OnMovement;
+                @Movement.canceled -= m_Wrapper.m_GhostModeActionsCallbackInterface.OnMovement;
+            }
+            m_Wrapper.m_GhostModeActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Movement.started += instance.OnMovement;
+                @Movement.performed += instance.OnMovement;
+                @Movement.canceled += instance.OnMovement;
+            }
+        }
+    }
+    public GhostModeActions @GhostMode => new GhostModeActions(this);
     private int m_ClavierSourisSchemeIndex = -1;
     public InputControlScheme ClavierSourisScheme
     {
@@ -349,5 +539,10 @@ public class @MainControls : IInputActionCollection, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnGlide(InputAction.CallbackContext context);
         void OnChangeWorld(InputAction.CallbackContext context);
+        void OnActivateItem(InputAction.CallbackContext context);
+    }
+    public interface IGhostModeActions
+    {
+        void OnMovement(InputAction.CallbackContext context);
     }
 }

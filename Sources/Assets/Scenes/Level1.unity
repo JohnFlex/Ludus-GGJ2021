@@ -2337,6 +2337,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvisibleLimiteWall
       objectReference: {fileID: 0}
+    - target: {fileID: 9107445203220192375, guid: 583b82f8ab27caf4798f8d826a34d58f,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 5.7395678
+      objectReference: {fileID: 0}
+    - target: {fileID: 9107445203220192375, guid: 583b82f8ab27caf4798f8d826a34d58f,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 1.8904839
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 583b82f8ab27caf4798f8d826a34d58f, type: 3}
 --- !u!1001 &1180855914
@@ -3101,8 +3111,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1477505225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 70.16, y: -41.97, z: 0}
-  m_LocalScale: {x: 10.622993, y: 14.475748, z: 1}
+  m_LocalPosition: {x: 70.16, y: -6.91, z: 0}
+  m_LocalScale: {x: 10.622993, y: 22.198843, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 12

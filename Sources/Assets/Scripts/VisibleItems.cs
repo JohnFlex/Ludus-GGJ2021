@@ -14,8 +14,8 @@ public class VisibleItems : MonoBehaviour
     Sprite ghostSprite;
 
     Sprite spriteComponent;
-    BoxCollider2D collider2D;
-    SpriteRenderer renderer;
+    BoxCollider2D myCollider;
+    SpriteRenderer myRendere;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,8 +31,8 @@ public class VisibleItems : MonoBehaviour
         {
             spriteComponent = ghostSprite;
         }
-        collider2D = gameObject.GetComponent<BoxCollider2D>();
-        renderer = gameObject.GetComponent<SpriteRenderer>();
+        myCollider = gameObject.GetComponent<BoxCollider2D>();
+        myRendere = gameObject.GetComponent<SpriteRenderer>();
         TriggerTheVisibility();
     }
 
@@ -42,13 +42,13 @@ public class VisibleItems : MonoBehaviour
         if (nowVisibleStatus)
         {
             
-            collider2D.enabled = true;
-            renderer.enabled = true;
+            //myCollider.enabled = true;
+            myRendere.enabled = true;
         }
         else
         {
-            collider2D.enabled = false;
-            renderer.enabled = false;
+            //myCollider.enabled = false;
+            myRendere.enabled = false;
         }
     }
 
