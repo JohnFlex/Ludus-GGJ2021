@@ -173,7 +173,7 @@ public class @MainControls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""36459ce1-9c30-4a81-aca8-35bc9750fd34"",
-                    ""path"": ""<Mouse>/leftButton"",
+                    ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""ClavierSouris"",
@@ -195,7 +195,7 @@ public class @MainControls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""7fd14b62-93b6-498d-8c54-913c4f28eeab"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""ClavierSouris"",
@@ -211,9 +211,9 @@ public class @MainControls : IInputActionCollection, IDisposable
             ""actions"": [
                 {
                     ""name"": ""Movement"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""a3802290-7672-4de6-ac64-0ca68040d952"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
                 }
@@ -275,59 +275,15 @@ public class @MainControls : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""Mobile"",
-                    ""id"": ""2e29d5dd-b9d8-43e4-b477-85e9b8130e8a"",
-                    ""path"": ""2DVector"",
+                    ""name"": """",
+                    ""id"": ""8b0d1276-0fd8-4e31-b31f-0039f58f85b0"",
+                    ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Movement"",
-                    ""isComposite"": true,
+                    ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""d2a2aa70-a72d-4bec-8f56-dd0d3c70cf8b"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""c6758ac2-8ab9-472c-9616-786a3d7f7743"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""78084414-0a10-4726-a364-8c1280f9962f"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""d38589b0-62af-4833-befe-2fbd171e9641"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
                 }
             ]
         }
