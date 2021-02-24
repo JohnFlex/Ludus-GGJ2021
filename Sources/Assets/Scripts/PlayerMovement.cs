@@ -9,6 +9,9 @@ using UnityEngine.InputSystem.EnhancedTouch;
 
 public class PlayerMovement : MonoBehaviour
 {
+
+    public static bool nowMoving;
+
     MainControls controls;
     float movePerformation = 0;
 
@@ -31,8 +34,16 @@ public class PlayerMovement : MonoBehaviour
     {
         controls = new MainControls();
 
-        controls.Default.Move.performed += ctx => movePerformation = ctx.ReadValue<float>();
-        controls.Default.Move.canceled += _ => movePerformation = 0f;
+        controls.Default.Move.performed += ctx =>
+        {
+            movePerformation = ctx.ReadValue<float>();
+            nowMoving = true;
+        };
+        controls.Default.Move.canceled += _ =>
+        {
+            movePerformation = 0f;
+            nowMoving = false;
+        };
         
 
         controls.Default.Jump.performed += _ => Jump();
