@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+#if UNITY_ANDROID || UNITY_IOS
+using UnityEngine.InputSystem.EnhancedTouch;
+
+#endif
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -39,6 +43,8 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         defaultGravityScale = rb.gravityScale;
+
+
     }
 
     private void OnEnable()
@@ -48,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+       
         Move(movePerformation);
         if (movePerformation != 0)
         {
@@ -95,6 +102,7 @@ public class PlayerMovement : MonoBehaviour
         if (canGlide)
         {
             rb.gravityScale = glidingGravityScale;
+            Debug.Log("Started Glide");
         }
         
     }
@@ -102,6 +110,7 @@ public class PlayerMovement : MonoBehaviour
     void StopGlide()
     {
         rb.gravityScale = defaultGravityScale;
+        Debug.Log("StopGlide");
     }
 
     private void OnDisable()

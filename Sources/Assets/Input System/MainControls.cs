@@ -36,11 +36,11 @@ public class @MainControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""Glide"",
-                    ""type"": ""Button"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""962398e7-d376-4cdc-bd77-757584cdae9e"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": ""Hold""
+                    ""interactions"": ""Hold(duration=0.3)""
                 },
                 {
                     ""name"": ""Change World"",
